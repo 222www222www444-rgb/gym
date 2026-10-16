@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجيماوية | GYMAWAYA - FIND YOUR POWER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* التنسيقات الموسعة للفخامة والسكرول الطويل */
+        :root {
+            --bg-dark: #080b0f;
+            --card-bg: #10141d;
+            --neon-lime: #a3ff12;
+            --cyan-title: #00f0ff;
+            --text-main: #ffffff;
+            --text-muted: #9aa4b2;
+            --border-color: #1e2634;
+        }
+
+        body {
+            background-color: var(--bg-dark) !important;
+            color: var(--text-main) !important;
+            font-family: 'Cairo', sans-serif !important;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* توسيع السكاشن لزيادة طول الصفحة */
+        section {
+            padding: 90px 20px !important;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-sub-tag {
+            color: var(--cyan-title);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        /* شبكة المكملات */
+        .supplements-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+            gap: 30px !important;
+        }
+
+        .supp-card {
+            background: var(--card-bg) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 18px !important;
+            overflow: hidden !important;
+            transition: 0.3s ease;
+        }
+
+        .supp-card:hover {
+            border-color: var(--neon-lime) !important;
+            transform: translateY(-8px);
+        }
+
+        .supp-img-box {
+            position: relative;
+            height: 220px !important;
+            width: 100%;
+        }
+
+        .supp-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+
+        .supp-overlay-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .supp-overlay-text.cyan { color: var(--cyan-title); }
+        .supp-overlay-text.lime { color: var(--neon-lime); }
+
+        .supp-body { padding: 25px !important; }
+        .supp-body h3 { font-size: 1.4rem; margin-bottom: 8px; color: #fff; }
+        .supp-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* قسم العروض الجديد المميز */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            background: linear-gradient(145deg, #10141d, #161d2a);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .offer-card:hover {
+            border-color: var(--neon-lime);
+            box-shadow: 0 10px 30px rgba(163, 255, 18, 0.15);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--neon-lime);
+            color: #000;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 900;
+            font-size: 0.85rem;
+        }
+
+        .offer-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        .offer-gym { color: var(--cyan-title); font-weight: 800; font-size: 0.95rem; margin-bottom: 15px; }
+        .offer-desc { color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+
+        /* قسم عن الموقع (About Us) الفخم */
+        .about-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: #161c28;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-lime);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-text { color: var(--text-muted); font-size: 0.9rem; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .about-box { grid-template-columns: 1fr; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- إشعار علوي -->
+    <div id="toastNotification" class="toast-notification"></div>
+
+    <!-- الهيدر -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <button id="findNearestBtnNav" class="btn-nearest-nav">
+                <i class="fa-solid fa-location-crosshairs"></i> + أقرب جيم
+            </button>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero" class="active">الرئيسية</a></li>
+                    <li><a href="#gyms">دليل الجيمات</a></li>
+                    <li><a href="#supplements">المكملات الغذائية</a></li>
+                    <li><a href="#offers">العروض</a></li>
+                    <li><a href="#about">عن الجيماوية</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html" class="brand-logo">
+                <div class="brand-text">
+                    <span class="ar-name">الجيماوية</span>
+                    <span class="en-sub">GYMAWAYA · FIND YOUR POWER</span>
+                </div>
+                <div class="logo-icon-box">G</div>
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. الهيرو (الواجهة الرئيسية) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span> دليلك الرياضي الأول في السويس
+            </div>
+            
+            <h1 class="hero-title-ar">الجيماوية</h1>
+            <h2 class="hero-title-en">GYMAWAYA</h2>
+
+            <h3 class="hero-tagline">الجيم المناسب ليك.. أقرب مما تتخيل.</h3>
+            <p class="hero-desc">اكتشف أفضل صالات اللياقة البدنية وكمال الأجسام في محافظة السويس، قارن الأسعار والخدمات وأقرب جيم لموقعك بسهولة.</p>
+        </div>
+    </section>
+
+    <!-- 2. دليل الجيمات -->
+    <section id="gyms" class="gyms-section container">
+        <div class="section-header">
+            <span class="section-sub-tag">SUEZ GYMS GUIDE</span>
+            <h2>دليل جيمات السويس المميزة</h2>
+            <p>اختر الجيم المناسب لمعرفة التفاصيل والاشتراكات والخدمات</p>
+        </div>
+
+        <div id="gymGrid" class="gym-grid"></div>
+    </section>
+
+    <!-- 3. قسم المكملات الغذائية -->
+    <section id="supplements" class="supplements-section container">
+        <div class="section-header">
+            <span class="section-sub-tag">SPORTS NUTRITION</span>
+            <h2>قسم المكملات الغذائية</h2>
+            <p>تعرف على أشهر أنواع المكملات الرياضية واستخداماتها العامة لبناء جسم رياضي صحي.</p>
+        </div>
+
+        <div class="supplements-grid">
+            <div class="supp-card">
+                <div class="supp-img-box">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Vitamins">
+                    <div class="supp-overlay-text">VIT</div>
+                </div>
+                <div class="supp-body">
+                    <span class="supp-cat">VITAMINS</span>
+                    <h3>الفيتامينات والمعادن</h3>
+                    <p>تساعد في الحفاظ على الصحة العامة، تعزيز المناعة، وتغطية النقص الغذائي اليومي للرياضيين.</p>
+                </div>
+            </div>
+
+            <div class="supp-card">
+                <div class="supp-img-box">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Creatine">
+                    <div class="supp-overlay-text cyan">CREA</div>
+                </div>
+                <div class="supp-body">
+                    <span class="supp-cat">CREATINE</span>
+                    <h3>الكرياتين المونوهيدرات</h3>
+                    <p>من أكثر المكملات المثبتة علمياً لزيادة القوة البدنية، وتحسين الأداء في التمارين عالية الشدة.</p>
+                </div>
+            </div>
+
+            <div class="supp-card">
+                <div class="supp-img-box">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Protein">
+                    <div class="supp-overlay-text lime">PRO</div>
+                </div>
+                <div class="supp-body">
+                    <span class="supp-cat">PROTEIN</span>
+                    <h3>بروتين الواي (Whey)</h3>
+                    <p>مصدر سريع الامتصاص للبناء العضلي، يتناول بعد التمرين المباشر لتسريع عملية الاستشفاء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. قسم العروض الحصرية (جديد) -->
+    <section id="offers" class="offers-section container">
+        <div class="section-header">
+            <span class="section-sub-tag">HOT DEALS</span>
+            <h2>أحدث عروض وصالات السويس</h2>
+            <p>استمتع بخصومات حصرية واشتراكات خاصة لمستخدمي منصة الجيماوية</p>
+        </div>
+
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="offer-badge">خصم 25%</span>
+                <h3>عرض الاشتراكات الطلابية</h3>
+                <div class="offer-gym">جيم الأبطال - الملاحة</div>
+                <p class="offer-desc">خصم خاص لطلاب المدارس والجامعات بالسويس عند إبراز الكارنيه الشديد.</p>
+                <a href="#gyms" class="btn-neon-action">احجز العرض ↗</a>
+            </div>
+
+            <div class="offer-card">
+                <span class="offer-badge">شهر مجاناً</span>
+                <h3>عرض الاشتراك السنوي</h3>
+                <div class="offer-gym">بيج رامي فاميلي جيم - الشهداء</div>
+                <p class="offer-desc">اشترك لمدة 6 أشهر واحصل على شهر إضافي مجاناً شامل الساونا وInBody.</p>
+                <a href="#gyms" class="btn-neon-action">احجز العرض ↗</a>
+            </div>
+
+            <div class="offer-card">
+                <span class="offer-badge">عرض الصيف</span>
+                <h3>باقة التجهيز البدني</h3>
+                <div class="offer-gym">فايترز جيم - الصباح</div>
+                <p class="offer-desc">اشتراك كمال أجسام + جدول غذائي مجاني مع كابتن متخصص.</p>
+                <a href="#gyms" class="btn-neon-action">احجز العرض ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. قسم عن الجيماوية (جديد) -->
+    <section id="about" class="about-section container">
+        <div class="about-box">
+            <div class="about-info">
+                <span class="section-sub-tag">ABOUT GYMAWAYA</span>
+                <h2 style="font-size:2.2rem; color:#fff; margin-bottom:15px;">منصة الجيماوية بالسويس</h2>
+                <p style="color:var(--text-muted); line-height:1.8; margin-bottom:20px;">
+                    الجيماوية هي أول دليل رقمي تفاعلي متكامل يهدف لخدمة شباب ورياضيين محافظة السويس. نساعدك على اختيار صالة الألعاب الرياضية المناسبة لموقعك وميزانيتك، مع توفير كافة التفاصيل المتعلقة بالمدربين والأسعار والخدمات.
+                </p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-num">+15</div>
+                    <div class="stat-text">جيم في السويس</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-text">دليل مجاني</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">GPS</div>
+                    <div class="stat-text">تحديد أقرب جيم</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">24/7</div>
+                    <div class="stat-text">تحديث مستمر</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-center">
+                <p>© 2026 الجيماوية GYMAWAYA — جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
